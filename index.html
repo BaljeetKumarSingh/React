@@ -1,0 +1,43 @@
+<!--Be Curious-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+	<h1>Hello Top of root</h1>
+    <div id="root">
+		<h1>Surprise I am already here</h1>
+		<!-- this will get replaced (not appended) by whatever we add here using react-->
+    </div>
+	<h1>Hello Below of root</h1>
+
+    <!-- <script>
+        // creating h1 using js
+        let root = document.getElementById("root");
+        let header = document.createElement("h1");
+        header.innerHTML = "Hello World using Js!";
+        root.appendChild(header);
+    </script> -->
+    <script
+	crossorigin
+	src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+	crossorigin
+	src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+	
+	<script src="App.js"></script>
+  </body>
+</html>
+<!--Preferences: Open User Settings (JSON)-->
+
+<!--
+  Note: 
+  1. Order of files matters a lot, we cant put <script src="App.js"></script> above cdn links
+     it will give a  ReferenceError: React is not defined.
+-->
