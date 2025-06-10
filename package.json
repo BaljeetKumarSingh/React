@@ -1,0 +1,28 @@
+{
+  "name": "namaste-react",
+  "version": "1.0.0",
+  "description": "Learning React",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BaljeetKumarSingh/React.git"
+  },
+  "keywords": [
+    "React"
+  ],
+  "author": "Baljeet Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BaljeetKumarSingh/React/issues"
+  },
+  "homepage": "https://github.com/BaljeetKumarSingh/React#readme",
+  "devDependencies": {
+    "parcel": "^2.15.2"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  }
+}
