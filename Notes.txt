@@ -39,3 +39,23 @@ Note: code to create html tag using js
   );
   and this React.createElement will return us an object and we apply render method on it create an element.
    render is very powerful it render the object(returned by React.createElement) and put all those tags in our html code.
+
+   // React.createElement => ReactElement - Js Object => HtmlElement(after rendering)
+
+   // JSX => Babel transpile it to React.createElement => ReactElement - Js Object => HtmlElement(after rendering)
+
+   // React Element written in JSX
+    const jsxHeading = (
+        <h1 id="heading" className="head">Namaste React using JSX🚀</h1>
+    );
+
+    //React Element written in React
+    const heading = React.createElement(
+        "h1",
+        { id: "heading" },
+        "Creating a heading using react🚀"
+    );
+
+    // how to render
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(jsxHeading);

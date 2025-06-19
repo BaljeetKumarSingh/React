@@ -2,26 +2,26 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { jsx } from "react/jsx-runtime";
 
-// React.createElement => ReactElement - Js Object => HtmlElement(after rendering)
+//React Component
+// 1. Class Based Component
+// 2. Functional Component
 
-const heading = React.createElement(
-  "h1",
-  { id: "heading" },
-  "Creating a heading using react🚀"
-);
-console.log(heading);
-
-// JSX (transpile before it reaches js) -PARCEL -Babel
-
-// JSX => Babel transpile it to React.createElement => ReactElement - Js Object => HtmlElement(after rendering)
-
-// React Element written in JSX
-const jsxHeading = (
+// React Functional Component
+const Title = () => (
   <h1 id="heading" className="head">
-    Namaste React using JSX🚀
+    Namaste React Functional Component🚀
   </h1>
 );
-console.log(jsxHeading);
+
+// Component Composition - nesting one component inside another
+
+const HeadingComponent = () => (
+  <div id="container">
+    <Title/>
+    <h1 className="heading">Practicing Component Composition</h1>
+  </div>
+);
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(jsxHeading);
+root.render(<HeadingComponent />);
