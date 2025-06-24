@@ -18,7 +18,7 @@ Note: code to create html tag using js
       and since cdn links are below this line it will unable to fetch React and ReactDOM through network call. 
 
  Note: 
-  -React will only work in the place what ever we made the root as(it can work in header only, it can work in footer only , it can work in side bar)
+  -React will only work in the place whatever we made the root as(it can work in header only, it can work in footer only , it can work in side bar)
   
   -that's why react is a library(it can work independently on the small portion of our app as well).
 
@@ -40,6 +40,7 @@ Note: code to create html tag using js
   and this React.createElement will return us an object and we apply render method on it create an element.
    render is very powerful it render the object(returned by React.createElement) and put all those tags in our html code.
 
+    EPISODE - 2
    // React.createElement => ReactElement - Js Object => HtmlElement(after rendering)
 
    // JSX => Babel transpile it to React.createElement => ReactElement - Js Object => HtmlElement(after rendering)
@@ -59,3 +60,14 @@ Note: code to create html tag using js
     // how to render
     const root = ReactDOM.createRoot(document.getElementById("root"));
     root.render(jsxHeading);
+
+React Component:
+
+ 1. Class Based Component
+ 2. Functional Component
+
+ React Functional Component - it's js function that return a piece of JSX or react element
+
+ Note: React Component name should start with capital letter(i.e. PascalCase) (HeadingComponent),
+        if we write it in camelCase it will throw an error:
+        Error: <headingComponent /> is using incorrect casing. Use PascalCase for React components, or lowercase for HTML elements.
