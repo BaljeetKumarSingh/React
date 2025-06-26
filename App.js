@@ -38,6 +38,8 @@ const Header = () => {
   );
 };
 
+// hard coded data
+
 const resList = [
   {
     type: "restaurant",
@@ -1822,6 +1824,7 @@ const resList = [
 
 const RestaurantCard = (props) => {
   const { resData } = props;
+  console.log(resData);
 
   const { name, cft, o2FeaturedImage, locality, rating, cuisine } =
     resData?.info;
@@ -1830,14 +1833,16 @@ const RestaurantCard = (props) => {
     <div className="res-card">
       <div>
         <img src={o2FeaturedImage.url} alt="restaurant-image" />
+        <p className="offer">{resData.bulkOffers[0].text}</p>
       </div>
       <div className="res-info">
-        <h2>
+        <h4>
           {name}
-          <span style={{ color: `#${rating.rating_color}` }}>
+          <span style={{ backgroundColor: `#${rating.rating_color}` }}>
             {rating.rating_text}
+            {"\u2605"}
           </span>
-        </h2>
+        </h4>
         <p>
           {/* {cuisine.map((data) => data.name)} */}
           {cuisine[0].name}
@@ -1847,10 +1852,8 @@ const RestaurantCard = (props) => {
           {locality.name}
           <span>{resData.distance}</span>
         </p>
-        <p>
-          Deliverd in <span>{resData.order.deliveryTime}</span>
-        </p>
       </div>
+      <span className="align-right">{resData.order.deliveryTime}</span>
     </div>
   );
 };
