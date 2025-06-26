@@ -2,32 +2,88 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { jsx } from "react/jsx-runtime";
 
-//React Component
-// 1. Class Based Component
-// 2. Functional Component
+/**
+ * Header
+ *  - Logo
+ *  - Nav items
+ * Body
+ *  - Search bar
+ *  - Resturant Container
+ *      -Resturant Card
+ * Footer
+ *  - Copyright
+ *  - link
+ *  - Address
+ *  - Contact
+ */
 
-// React Functional Component - it's js function that return a piece of JSX or react element
+const Header = () => {
+    return (
+        <div className="header-container">
+            <div className="logo">
+                <img src="https://png.pngtree.com/template/20200610/ourmid/pngtree-food-delivery-logo-design-image_381319.jpg" alt="logo" />
+            </div>
+            <div className="nav-items">
+                <ul>
+                    <li>Home</li>
+                    <li>AboutUs</li>
+                    <li>ContactUs</li>
+                    <li>Cart</li>
+                </ul>
+            </div>
 
-const Title = () => (
-  <h1 id="heading" className="head">
-    Namaste React Functional Component🚀
-  </h1>
-);
-
-// Component Composition - nesting one component inside another
-
-// we can nest react element inside react functional component and vice versa
-
-const HeadingComponent = () => (
-  <div id="container">
-    {Title()}  {/*this Title function is js and we write js in curly braces{}} */}
-    {/*similarly when we nest react element inside Functional component we write it in curly braces{} b/c at the end of the day it is also a js object */}
-    <Title/>
-    <Title></Title>  {/*this is another way to nest one component inside another*/}
-    <h1 className="heading">Practicing Component Composition</h1>
-  </div>
-);
+        </div>
+    );
+};
 
 
+const RestaurantCard = () => {
+    return (
+        <div className="res-card">
+            <div>
+                <img src="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg" alt="restaurant-image" />
+            </div>
+            <div className="res-info">
+                <h2>Meghna Food <span>4.4/5.0</span></h2>
+                <p>Finger Food<span>₹1000 for two</span></p>
+                <p>GandhiNagar,Vns <span>2km</span></p>
+            </div>
+        </div>
+    );
+}
+
+const Body = () => {
+    return (
+        <div className="body-container">
+            <div className="search-bar">
+                <input type="text" placeholder="Search Your Fav Restaurant" className="text-input" />
+                <button className="search-btn">Search</button>
+            </div>
+            <div className="res-container">
+                <RestaurantCard />
+                <RestaurantCard />
+                <RestaurantCard />
+                <RestaurantCard />
+                <RestaurantCard />
+                <RestaurantCard />
+                <RestaurantCard />
+                <RestaurantCard />
+                <RestaurantCard />
+                <RestaurantCard />
+                <RestaurantCard />
+            </div>
+        </div>
+
+    );
+}
+
+const AppLayout = () => {
+    return (
+        <div>
+            <Header />
+            <Body />
+        </div>
+    );
+}
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<HeadingComponent />);
+root.render(<AppLayout />);
