@@ -71,3 +71,42 @@ React Component:
  Note: React Component name should start with capital letter(i.e. PascalCase) (HeadingComponent),
         if we write it in camelCase it will throw an error:
         Error: <headingComponent /> is using incorrect casing. Use PascalCase for React components, or lowercase for HTML elements.
+
+
+// Food Ordering App
+
+/**
+ * Header
+ *  - Logo
+ *  - Nav items
+ * Body
+ *  - Search bar
+ *  - Resturant Container
+ *      -Resturant Card
+ * Footer
+ *  - Copyright
+ *  - link
+ *  - Address
+ *  - Contact
+ */
+
+ Notes: 
+ //  const styleCard = {
+//   backgroundColor: '#f0f0f0',
+// };
+
+// * Props :
+
+// * prop -> is Just a JS Object
+
+// * Note: When you have to dainamically pass in a data to a component, you pass in prop
+
+// const RestaurantCard = (props) => {
+// console.log(props);
+
+// * Note We can also destructure props on the fly by wrapping them in between {}, this is like...
+
+// * const { resName, cuisine } = props;
+
+// const RestaurantCard = ({ resName, cuisine }) => {
+//   console.log({ resName, cuisine });

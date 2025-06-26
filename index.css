@@ -80,6 +80,7 @@
   background-color: #3b82f6;
   color: white;
   padding: 0px 5px;
+  margin-left: 5px;
 }
 
 .res-info p,
@@ -118,7 +119,7 @@ h4 {
   height: 1.2rem;
   border-radius: 0.25rem;
   color: #ffffffe6;
-  padding: 0px 2px 2px 2px;
+  padding: 0px 2px 4px 2px;
   text-align: center;
 }
 
