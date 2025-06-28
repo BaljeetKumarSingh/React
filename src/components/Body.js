@@ -1,11 +1,52 @@
 import RestaurantCard from "./RestaurantCard";
 import resList from "../utils/mockData";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Shimmer from "./Shimmer";
+
+// creating user defined promise(in order to mimic api call) as my api failed
+
+function fetchRestaurantList(data) {
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(data);
+    }, 1000);
+  });
+  return promise;
+}
 
 const Body = () => {
   // local state variable - Super powerful variable
-  const [listOfRestaurant, setListOfRestaurant] = useState(resList);
-  // console.log(useState(resList));
+  const [listOfRestaurant, setListOfRestaurant] = useState([]);
+
+  // Api failled
+
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
+
+  // const fetchData = async () => {
+  //   const data = await fetch(
+  //     "https://developers.zomato.com/api/v2.1/collections?lat=-77596659.4184915&lon=-77596659.4184915&city_id=ipsum sunt labore ex&count=56625527"
+  //   );
+  //   const json = await data.json();
+  //   console.log(json);
+  //   // setListOfRestaurant(json?.data.crad);
+  // };
+
+  useEffect(() =>{
+    getRestaurantList();
+  }, []);
+
+  const getRestaurantList = async () => {
+    const list = await fetchRestaurantList(resList);
+    // console.log(list);
+    setListOfRestaurant(list);
+  }
+
+  if (listOfRestaurant.length === 0) {
+    return <Shimmer />;
+  }
+
   return (
     <div className="body-container">
       <div className="search-bar">
@@ -19,7 +60,9 @@ const Body = () => {
       <button
         className="filter-btn"
         onClick={() => {
-          const filteredList = listOfRestaurant.filter((res) => res.info.rating.rating_text >= 4.0);
+          const filteredList = listOfRestaurant.filter(
+            (res) => res.info.rating.rating_text >= 4.0
+          );
           setListOfRestaurant(filteredList);
         }}
       >
