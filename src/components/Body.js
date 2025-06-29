@@ -15,7 +15,11 @@ function fetchRestaurantList(data) {
 }
 
 const Body = () => {
+
   // local state variable - Super powerful variable
+  // this is one of the hoock that react provide to us
+  // whenever this state variable get updated, react re-render its component
+  // react is keeping an eye on this use state variable
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
 
   // Api failled
@@ -33,6 +37,11 @@ const Body = () => {
   //   // setListOfRestaurant(json?.data.crad);
   // };
 
+  // this is another hoock that react provide to us.
+  // it takes two parameter callback function and dependency array
+  // super power: as soon as rendering process is finished it call this callback function.
+  // load -> Render -> API -> Re-render 
+
   useEffect(() =>{
     getRestaurantList();
   }, []);
@@ -43,11 +52,12 @@ const Body = () => {
     setListOfRestaurant(list);
   }
 
-  if (listOfRestaurant.length === 0) {
-    return <Shimmer />;
-  }
+  // Conditional Rendering
+  // if (listOfRestaurant.length === 0) {
+  //   return <Shimmer />;
+  // }
 
-  return (
+  return listOfRestaurant.length === 0 ? <Shimmer /> : (
     <div className="body-container">
       <div className="search-bar">
         <input
