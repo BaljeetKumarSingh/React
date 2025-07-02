@@ -6,13 +6,13 @@ import Body from "./components/Body";
 import About from "./components/About";
 import Error from "./components/Error";
 import Contact from "./components/Contact";
-import { createBrowserRouter, RouterProvider } from "react-router";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 
 const AppLayout = () => {
   return (
     <div>
       <Header />
-      <Body />
+      <Outlet />
     </div>
   );
 };
@@ -21,15 +21,21 @@ const appRouter = createBrowserRouter([
   {
     path: "/",
     Component: AppLayout, //element: <AppLayout />
+    children: [
+      {
+        path: "/",
+        Component: Body,
+      },
+      {
+        path: "/about",
+        Component: About,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+    ],
     errorElement: <Error />,
-  },
-  {
-    path: "/about",
-    Component: About,
-  },
-  {
-    path: "/contact",
-    element: <Contact />,
   },
 ]);
 
