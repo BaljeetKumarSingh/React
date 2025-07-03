@@ -2,7 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import resList from "../utils/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
-
+import { Link } from "react-router";
 // creating user defined promise(in order to mimic api call) as my api failed
 
 function fetchRestaurantList(data) {
@@ -38,11 +38,16 @@ const Body = () => {
 
   // const fetchData = async () => {
   //   const data = await fetch(
-  //     "https://developers.zomato.com/api/v2.1/collections?lat=-77596659.4184915&lon=-77596659.4184915&city_id=ipsum sunt labore ex&count=56625527"
+  //     "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
   //   );
   //   const json = await data.json();
   //   console.log(json);
-  //   // setListOfRestaurant(json?.data.crad);
+  //   setListOfRestaurant(
+  //     json?.data?.cads[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+  //   );
+  //   setFilteredRestaurant(
+  //     json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+  //   );
   // };
 
   // this is another hoock that react provide to us.
@@ -108,7 +113,12 @@ const Body = () => {
       </button>
       <div className="res-container">
         {filteredRestaurant.map((restaurant) => (
-          <RestaurantCard key={restaurant.info.resId} resData={restaurant} />
+          <Link
+            key={restaurant.info.resId}
+            to={"./restaurant" + restaurant.order.actionInfo.clickUrl}
+          >
+            <RestaurantCard resData={restaurant} />
+          </Link>
         ))}
       </div>
     </div>
