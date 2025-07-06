@@ -12,6 +12,7 @@ class About extends Component {
   componentDidMount() {
     console.log("Parent Component Did Mount");
   }
+
   componentDidUpdate() {
     console.log("Parent Component Did Update");
   }
@@ -24,9 +25,7 @@ class About extends Component {
     return (
       <div>
         <h1>About Us Page</h1>
-        <UserClass name={"First"} location={"Raman Hostel Kanpur, 208002"} />
-        <UserClass name={"Second"} location={"Lucknow,UP"} />
-        <UserClass name={"Third"} location={"Lucknow,UP"} />
+        <UserClass />
       </div>
     );
   }
