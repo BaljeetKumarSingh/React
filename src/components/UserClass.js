@@ -14,19 +14,23 @@ class UserClass extends React.Component {
   }
 
   async componentDidMount() {
-    const data = await fetch("https://api.github.com/users/BaljeetKumarSingh");
-    const json = await data.json();
-    // console.log(json);
-    this.setState({
-      userInfo: json,
-    });
+    // const data = await fetch("https://api.github.com/users/BaljeetKumarSingh");
+    // const json = await data.json();
+    // // console.log(json);
+    // this.setState({
+    //   userInfo: json,
+    // });
+    this.timer = setInterval(() => {
+      console.log("Namaste React Op");
+    }, 1000);
     console.log("Child Component Did Mount");
   }
 
   componentDidUpdate() {
     console.log("Child Component Did Update");
   }
-  componentWillUnmountate() {
+  componentWillUnmount() {
+    clearInterval(this.timer);
     console.log("Child Component Will Unmount");
   }
 
