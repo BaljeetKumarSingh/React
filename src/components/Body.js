@@ -3,6 +3,8 @@ import resList from "../utils/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
+import useOnlineStatus from "../utils/useOnlineStatus";
+
 // creating user defined promise(in order to mimic api call) as my api failed
 
 function fetchRestaurantList(data) {
@@ -67,10 +69,13 @@ const Body = () => {
     // after this line body get rendered and update above both state variable in one render.(can see by debuging)
   };
 
-  // Conditional Rendering
-  // if (listOfRestaurant.length === 0) {
-  //   return <Shimmer />;
-  // }
+  const onlineStatus = useOnlineStatus();
+  if (!onlineStatus)
+    return (
+      <h1>
+        Looks like you are offline!!! Please check your internet Connection.
+      </h1>
+    );
 
   return listOfRestaurant.length === 0 ? (
     <Shimmer />

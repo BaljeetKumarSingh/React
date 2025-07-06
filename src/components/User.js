@@ -1,19 +1,6 @@
 import { useEffect, useState } from "react";
 
 const User = ({ name, location }) => {
-  useEffect(() => {
-    const timer = setInterval(() => {
-      console.log("Baljeet Singh");
-    }, 1000);
-
-    console.log("useEffect Called");
-
-    return () => {
-      // this act as componentWillUnmount()
-      clearInterval(timer);
-      console.log("useEffect Return function Called");
-    };
-  }, []);
   return (
     <div className="user-card">
       <h2>Name: {name}</h2>
