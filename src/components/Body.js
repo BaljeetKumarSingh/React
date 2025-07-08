@@ -80,12 +80,12 @@ const Body = () => {
   return listOfRestaurant.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body-container">
-      <div className="search-bar">
-        <input
+    <div className="mt-4 flex flex-col justify-center items-center gap-4">
+      <div className="flex justify-center gap-4">
+        <input 
+          className="pr-4 pl-1 border-2 w-56 rounded-sm"
           type="text"
           placeholder="Search Your Fav Restaurant"
-          className="text-input"
           value={searchText} // this is read only type
           // this will help us to change the searchText and thus make it editable
           onChange={(e) => {
@@ -93,7 +93,7 @@ const Body = () => {
           }}
         />
         <button
-          className="search-btn"
+          className="bg-blue-500 text-white px-4 py-1 rounded-lg shadow-lg"
           onClick={() => {
             // Filter the cards based of the searchText(input value)
             const searchFilteredList = listOfRestaurant.filter((res) =>
@@ -106,7 +106,7 @@ const Body = () => {
         </button>
       </div>
       <button
-        className="filter-btn"
+        className="bg-blue-500 text-white px-4 py-1 rounded-lg shadow-lg"
         onClick={() => {
           const filteredList = listOfRestaurant.filter(
             (res) => res.info.rating.rating_text >= 4.0
@@ -116,7 +116,7 @@ const Body = () => {
       >
         Top Rated Restaurant
       </button>
-      <div className="res-container">
+      <div className="flex flex-wrap gap-4 p-2 justify-center">
         {filteredRestaurant.map((restaurant) => (
           <Link
             key={restaurant.info.resId}
