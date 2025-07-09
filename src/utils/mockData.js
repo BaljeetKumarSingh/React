@@ -126,7 +126,7 @@ const resList = [
         "https://link.zomato.com/xqzv/v17twtu8?deep_link_value=zomato%3A%2F%2Forder%2F20634883%3Futm_campaign%3Daff20ed235b33bf08c1e5a7adc952bff%26utm_source%3Dmweb%26utm_medium%3DMwebSearchResCard",
     },
     distance: "6.1 km",
-    isPromoted: false,
+    isPromoted: true,
     promotedText: "",
     trackingData: [
       {
@@ -847,7 +847,7 @@ const resList = [
         "https://link.zomato.com/xqzv/v17twtu8?deep_link_value=zomato%3A%2F%2Forder%2F21750763%3Futm_campaign%3Daff20ed235b33bf08c1e5a7adc952bff%26utm_source%3Dmweb%26utm_medium%3DMwebSearchResCard",
     },
     distance: "2.4 km",
-    isPromoted: false,
+    isPromoted: true,
     promotedText: "",
     trackingData: [
       {

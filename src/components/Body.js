@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import resList from "../utils/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
@@ -17,8 +17,6 @@ function fetchRestaurantList(data) {
 }
 
 const Body = () => {
-  // console.log("Body Rendered");
-
   // local state variable - Super powerful variable
   // this is one of the hoock that react provide to us
   // whenever this state variable get updated, react re-render its component
@@ -29,6 +27,8 @@ const Body = () => {
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
 
   const [searchText, setSearchText] = useState("");
+
+  const PromotedRestaurantCard = withPromotedLabel(RestaurantCard);
 
   // whenever state variable updates, react triggers a reconciliation cycle (re-render the component)
 
@@ -82,7 +82,7 @@ const Body = () => {
   ) : (
     <div className="mt-4 flex flex-col justify-center items-center gap-4">
       <div className="flex justify-center gap-4">
-        <input 
+        <input
           className="pr-4 pl-1 border-2 w-56 rounded-sm"
           type="text"
           placeholder="Search Your Fav Restaurant"
@@ -122,7 +122,11 @@ const Body = () => {
             key={restaurant.info.resId}
             to={"./restaurant" + restaurant.order.actionInfo.clickUrl}
           >
-            <RestaurantCard resData={restaurant} />
+            {restaurant.isPromoted ? (
+              <PromotedRestaurantCard resData={restaurant} />
+            ) : (
+              <RestaurantCard resData={restaurant} />
+            )}
           </Link>
         ))}
       </div>
