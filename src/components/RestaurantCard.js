@@ -4,7 +4,7 @@ const RestaurantCard = (props) => {
     resData?.info;
 
   return (
-    <div className="relative w-72 h-76 p-2 rounded-md hover:shadow-2xl hover:ring-1 hover:cursor-pointer hover:inset-shadow-xs">
+    <div className="relative w-72 h-76 p-2 rounded-md hover:shadow-2xl hover:ring-[0.2px] hover:cursor-pointer">
       <div>
         <img
           className="rounded-md h-36 w-68 "
