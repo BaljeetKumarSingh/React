@@ -1,9 +1,10 @@
 import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import resList from "../utils/mockData";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 // creating user defined promise(in order to mimic api call) as my api failed
 
@@ -29,6 +30,8 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
 
   const PromotedRestaurantCard = withPromotedLabel(RestaurantCard);
+
+  const { loggedInUser, setUserName } = useContext(UserContext);
 
   // whenever state variable updates, react triggers a reconciliation cycle (re-render the component)
 
@@ -104,6 +107,13 @@ const Body = () => {
         >
           Search
         </button>
+        <label>UserName: </label>
+        <input
+          className="pl-1 border-2 rounded-sm"
+          type="text"
+          value={loggedInUser}
+          onChange={(e) => setUserName(e.target.value)}
+        ></input>
       </div>
       <button
         className="bg-blue-500 text-white px-4 py-1 rounded-lg shadow-lg"

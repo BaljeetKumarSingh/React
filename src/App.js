@@ -7,17 +7,29 @@ import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 // import Grocery from "./components/Grocery";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
+import UserContext from "./utils/UserContext";
 
 // Lazy loading | very Powerful code
 const Grocery = lazy(() => import("./components/Grocery")); // this code create another bundle for grocery
 
 const AppLayout = () => {
+  // Authentication
+  const [userName, setUserName] = useState();
+  useEffect(() => {
+    // Make an api call and send userName and password
+    const data = {
+      name: "Baljeet",
+    };
+    setUserName(data.name);
+  }, []);
   return (
-    <div>
-      <Header />
-      <Outlet />
-    </div>
+    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+      <div>
+        <Header />
+        <Outlet />
+      </div>
+    </UserContext.Provider>
   );
 };
 
