@@ -1,15 +1,14 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
-import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [btnNameReact, setBtnNameReact] = useState("Login");
-  // console.log("Header Rendered");
+  const cartItems = useSelector((store) => store.cart.items);
+  console.log(cartItems);
   const onlineStatus = useOnlineStatus();
-  const { loggedInUser } = useContext(UserContext);
-
   return (
     <div className="flex justify-between items-center px-4 shadow-lg">
       <div>
@@ -30,26 +29,21 @@ const Header = () => {
           <li>
             <Link to="/grocery">Grocery</Link>
           </li>
-          <li>Cart</li>
+          <li className="font-bold text-md">
+            <Link to="/cart">Cart({cartItems.length} items)</Link>
+          </li>
           <li>
             <button
               className="shadow-lg bg-blue-500 text-white px-3 py-1 rounded-lg"
               onClick={() => {
-                // if (btnNameReact === "Login") {
-                //   setBtnNameReact("Logout");
-                // } else {
-                //   setBtnNameReact("Login");
-                // }
                 btnNameReact === "Login"
                   ? setBtnNameReact("Logout")
                   : setBtnNameReact("Login");
-                // console.log(btnNameReact);
               }}
             >
               {btnNameReact}
             </button>
           </li>
-          <li className="font-bold text-md">{loggedInUser}</li>
         </ul>
       </div>
     </div>

@@ -5,7 +5,7 @@ const User = ({ name, location }) => {
     <div className="user-card">
       <h2>Name: {name}</h2>
       <h3>Location: {location}</h3>
-      <h4>Contact: 7761884946</h4>
+      <h4>Contact: 5461205464</h4>
     </div>
   );
 };
